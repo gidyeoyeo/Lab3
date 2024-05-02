@@ -1,11 +1,17 @@
-print("Lab 3 - Software Unit Testing with PyTest")
-
 SORT_ASCENDING = 0
 SORT_DESCENDING = 1
 
-
 def bubble_sort(arr, sorting_order):
-
+    for elem in arr:
+        if not isinstance(elem, int):
+            return 2  # Return 2 if any value is not an integer
+    
+    if len(arr) == 0:
+        return 0  # Return 0 if no numbers are entered
+    
+    if len(arr) >= 10:
+        return 1  # Return 1 if there are 10 or more numbers entered
+    
     # Copy input list to results list
     arr_result = arr.copy()
 
@@ -34,8 +40,8 @@ def bubble_sort(arr, sorting_order):
                     # Return an empty array
                     arr_result = []
     else:
-        arr_result = -1
-
+        arr_result = -1  # Return -1 if there are less than 10 numbers entered
+    
     return arr_result
 
 def main():
@@ -44,15 +50,27 @@ def main():
 
     # Sort in ascending order
     result = bubble_sort(arr, SORT_ASCENDING)
-    print("\nSorted array in ascending order: ")
-    print(result)
+    if result == 1:
+        print("Returned 1 because there are 10 or more numbers entered.")
+    elif result == 0:
+        print("Returned 0 because no numbers are entered.")
+    elif result == 2:
+        print("Returned 2 because not all values entered are integers.")
+    else:
+        print("\nSorted array in ascending order: ")
+        print(result)
 
     # Sort in descending order
     print("Sorted array in descending order: ")
     result = bubble_sort(arr, SORT_DESCENDING)
-    print(result)
+    if result == 1:
+        print("Returned 1 because there are 10 or more numbers entered.")
+    elif result == 0:
+        print("Returned 0 because no numbers are entered.")
+    elif result == 2:
+        print("Returned 2 because not all values entered are integers.")
+    else:
+        print(result)
 
 if __name__ == "__main__":
     main()
-
-
