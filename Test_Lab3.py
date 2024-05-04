@@ -52,8 +52,3 @@ def  test_bubble_not_integers():
     result=Lab3.bubble_sort(input_arr,5)
 
     assert(result==2)
-        
-
-
-
-  
